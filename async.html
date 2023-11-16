@@ -21,7 +21,7 @@
             
         </script>
         <br><br>
-        <script>
+        <!-- <script>
             //callBack
 
             let stocks={
@@ -102,6 +102,96 @@
         
                 
             
+        </script> -->
+        <br><br>
+        <script>
+            // Promise
+
+            let stock={
+                Fruits : ["strawberry","grapes","banana","apple"],
+                liquid : ["water","ice"],
+                holder : ["cone","cup","stick"],
+                toppings : ["choclate","peanuts"]
+            };
+
+            let is_shop_open = true;
+
+            let order1=(time,work)=>{
+                
+                return new Promise(  (resolve,reject)=>{
+
+                    if(is_shop_open){
+
+                        setTimeout(()=>{
+
+                            resolve(work())
+
+                        },time)
+
+                        
+                    }
+                    else{
+                        reject(console.log("our shop is closed"))
+                    }
+
+                }  )
+            }
+            order1(2000,()=>console.log(`${stock.Fruits[0]} was selected`))
+
+            .then(()=>{
+                return order1(1000,()=>console.log("production has started"))
+            })
+
+            .then(()=>{
+                return order1(2000,()=>console.log("the fruit was chopped"))
+            })
+
+            .then(()=>{
+                return order1(1000,()=>{
+                    console.log(`${stock.liquid[0]} and ${stock.liquid[1]} was selected`)
+                })
+            })
+
+            .then(()=>{
+                return order1(1000,()=>console.log("start the mechine"))
+            })
+
+            .then(()=>{
+                return order1(2000,()=>{
+                    console.log(`ice cream placed on ${stock.holder[0]}`)
+                })
+            })
+
+            .then(()=>{
+                return order1(3000,()=>{
+                    console.log(`${stock.toppings[0]} was seleted`)
+                })
+            })
+
+            .then(()=>{
+                return order1(1000,()=>console.log("ice cream was served"))
+            })
+
+            .catch(()=>{
+                console.log("customer left");
+            })
+
+
+            .finally(()=>{
+                console.log("day ended ,shop is closec");
+
+            });
+
+            
+            
+            
+            
+
         </script>
+        <br><br>
+        <script>
+            
+        </script>
+        
     </body>
 </html>
