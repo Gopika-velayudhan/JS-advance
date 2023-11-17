@@ -107,90 +107,203 @@
         <script>
             // Promise
 
-            let stock={
+        //     let stock={
+        //         Fruits : ["strawberry","grapes","banana","apple"],
+        //         liquid : ["water","ice"],
+        //         holder : ["cone","cup","stick"],
+        //         toppings : ["choclate","peanuts"]
+        //     };
+
+        //     let is_shop_open = true;
+
+        //     let order1=(time,work)=>{
+                
+        //         return new Promise(  (resolve,reject)=>{
+
+        //             if(is_shop_open){
+
+        //                 setTimeout(()=>{
+
+        //                     resolve(work())
+
+        //                 },time)
+
+                        
+        //             }
+        //             else{
+        //                 reject(console.log("our shop is closed"))
+        //             }
+
+        //         }  )
+        //     }
+        //     order1(2000,()=>console.log(`${stock.Fruits[0]} was selected`))
+
+        //     .then(()=>{
+        //         return order1(1000,()=>console.log("production has started"))
+        //     })
+
+        //     .then(()=>{
+        //         return order1(2000,()=>console.log("the fruit was chopped"))
+        //     })
+
+        //     .then(()=>{
+        //         return order1(1000,()=>{
+        //             console.log(`${stock.liquid[0]} and ${stock.liquid[1]} was selected`)
+        //         })
+        //     })
+
+        //     .then(()=>{
+        //         return order1(1000,()=>console.log("start the mechine"))
+        //     })
+
+        //     .then(()=>{
+        //         return order1(2000,()=>{
+        //             console.log(`ice cream placed on ${stock.holder[0]}`)
+        //         })
+        //     })
+
+        //     .then(()=>{
+        //         return order1(3000,()=>{
+        //             console.log(`${stock.toppings[0]} was seleted`)
+        //         })
+        //     })
+
+        //     .then(()=>{
+        //         return order1(1000,()=>console.log("ice cream was served"))
+        //     })
+
+        //     .catch(()=>{
+        //         console.log("customer left");
+        //     })
+
+
+        //     .finally(()=>{
+        //         console.log("day ended ,shop is closec");
+
+        //     });
+
+            
+            
+            
+            
+
+        // </script>
+        <br><br>
+        <script>
+            // await
+        //     let stock1={
+        //         Fruits : ["strawberry","grapes","banana","apple"],
+        //         liquid : ["water","ice"],
+        //         holder : ["cone","cup","stick"],
+        //         toppings : ["choclate","peanuts"]
+        //     };
+            
+        //     let is_shop_open= true;
+
+
+
+        //     let toppings_choice = ()=>{
+                 
+        //         return new Promise((resolve,reject)=>{
+        //             setTimeout(()=>{
+        //                 resolve(console.log("which topping do you like ? "));
+
+                            
+                        
+                    
+        //             },3000);
+        //         });
+        //     };
+            
+        //     async function kitchen() {
+        //         console.log("A")
+        //         console.log("B")
+        //         console.log("C")
+
+        //         await toppings_choice()
+
+        //         console.log("D")
+        //         console.log("E")
+                
+        //     }
+        //     kitchen()
+
+        //     console.log("doing the dishes")
+        //     console.log("cleaning the tables")
+        //     console.log("taking others order")
+
+        // </script>
+        <br><br>
+        <script>
+            //async
+            let stock2={
                 Fruits : ["strawberry","grapes","banana","apple"],
                 liquid : ["water","ice"],
                 holder : ["cone","cup","stick"],
                 toppings : ["choclate","peanuts"]
             };
+            
+            let is_shop_open1= true;
 
-            let is_shop_open = true;
 
-            let order1=(time,work)=>{
+            function time(ms) {
+                return new Promise((resolve,reject)=>{
+                    if(is_shop_open1){
+                        setTimeout(resolve,ms)
+                    }else{
+                        reject(console.log("shop is closed"));
+                    }
+                })
                 
-                return new Promise(  (resolve,reject)=>{
-
-                    if(is_shop_open){
-
-                        setTimeout(()=>{
-
-                            resolve(work())
-
-                        },time)
-
-                        
-                    }
-                    else{
-                        reject(console.log("our shop is closed"))
-                    }
-
-                }  )
             }
-            order1(2000,()=>console.log(`${stock.Fruits[0]} was selected`))
 
-            .then(()=>{
-                return order1(1000,()=>console.log("production has started"))
-            })
+            async function kitchen() {
+                try{
+                    
+                    await time(2000)
+                    console.log(`${stock2.Fruits[0]}`)
+                    await time(1000)
+                    console.log("start the production")
+                    await time(2000)
+                    console.log("cut the fruit")
+                    await time(1000)
+                    console.log(`${stock2.liquid[0]}and ${stock2.liquid[1]} was added`)
+                    await time(1000)
+                    console.log("start the mechine")
+                    
 
-            .then(()=>{
-                return order1(2000,()=>console.log("the fruit was chopped"))
-            })
-
-            .then(()=>{
-                return order1(1000,()=>{
-                    console.log(`${stock.liquid[0]} and ${stock.liquid[1]} was selected`)
-                })
-            })
-
-            .then(()=>{
-                return order1(1000,()=>console.log("start the mechine"))
-            })
-
-            .then(()=>{
-                return order1(2000,()=>{
-                    console.log(`ice cream placed on ${stock.holder[0]}`)
-                })
-            })
-
-            .then(()=>{
-                return order1(3000,()=>{
-                    console.log(`${stock.toppings[0]} was seleted`)
-                })
-            })
-
-            .then(()=>{
-                return order1(1000,()=>console.log("ice cream was served"))
-            })
-
-            .catch(()=>{
-                console.log("customer left");
-            })
+                    await time(1000)
+                    console.log(`ice cream place on ${stock2.holder[0]}`);
 
 
-            .finally(()=>{
-                console.log("day ended ,shop is closec");
+                    await time(2000)
+                    console.log(`${stock2.toppings[0]} was selected`);
 
-            });
 
-            
-            
-            
-            
+                    await time(3000)
+                    console.log("serve icecream");
 
-        </script>
-        <br><br>
-        <script>
-            
+
+                    await time(2000)
+
+
+
+                }
+                catch(error){
+                    console.log("customer left",error)
+
+                }
+                finally{
+                    console.log("day end,shop is closed")
+
+                }
+                
+            }
+            kitchen()
+
+
+
+
         </script>
         
     </body>
