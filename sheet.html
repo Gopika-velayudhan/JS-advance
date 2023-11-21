@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="msg"></h1>
+
+    <form action=>
+        <input type="text" name="name" placeholder="name"><br><br>
+        <input type="email" name="email" placeholder="email"><br><br>
+        <input type="tel"   name="phone" placeholder="Phone"><br><br>
+        <input type="submit" id="sub">
+
+    </form>
+    <script>
+        // let stock2={
+        //         Fruits : ["strawberry","grapes","banana","apple"],
+        //         liquid : ["water","ice"],
+        //         holder : ["cone","cup","stick"],
+        //         toppings : ["choclate","peanuts"]
+        //     };
+            
+        //     let is_shop_open1= true;
+
+
+        //     function time(ms) {
+        //         return new Promise((resolve,reject)=>{
+        //             if(is_shop_open1){
+        //                 setTimeout(resolve,ms)
+        //             }else{
+        //                 reject(console.log("shop is closed"));
+        //             }
+        //         })
+                
+        //     }
+        //     async function kitchen() {
+        //         try{
+                
+        //         time(1000,()=>console.log("start the mechine"))
+        //         }
+        //         catch(error){
+        //             console.log("customer left",error)
+
+        //         }
+        //         finally{
+        //             console.log("day end,shop is closed")
+
+        //         }
+                
+        //     }
+            kitchen()
+
+    </script>
+    <script>
+        let form = document.querySelector("form");
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            document.querySelector("#sub").value="submit"
+            let data = new FormData(form);
+            fetch('https://script.google.com/macros/s/AKfycbxozMjII0afKlX1Jem3OUl3skFkXgnZpKR01zwbxxtTabXZMoIphkbuXJJh0dhZKhFI3A/exec',{
+                
+                method:"POST",
+                body:data
+            })
+            .then(res => res.text())
+            .then(data => console.log(data));
+
+        })
+    </script>
+    
+</body>
+</html>
